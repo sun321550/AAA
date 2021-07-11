@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class CustomerService {
     private List<Customer> customerList;
     private Customer currentCustomer;
+    Scanner  scan = new Scanner(System.in);
     // 1. 查, 登录 判断账号密码是否正确
     public void  checkPwd(String cardid, String  cardPwd){
         CustomerData customerData = CustomerData.getInstance();
@@ -22,11 +23,12 @@ public class CustomerService {
 
         for (Customer customer : customerList) {
             if (customer.getAccount().equals(cardid) && customer.getPassword().equals(cardPwd)){
-                // 拿出来这个人
-                currentCustomer=  customer;
+
+                currentCustomer =  customer;
                 // 账户正确
                 System.out.println("欢迎"+customer.getCname()+"顾客登录!请注意您的安全"   );
                 TextUitl.oneLeveOption();  // 界面
+
                 Scanner scanner = new Scanner(System.in);
                 String option = scanner.nextLine();
                 oneOption(option);
@@ -47,6 +49,7 @@ public class CustomerService {
                 break;
             case "2":
                 System.out.println("取款");
+                qu();
                 goOneHome();
                 break;
             case "3":
@@ -55,11 +58,13 @@ public class CustomerService {
                 break;
             case "4":
                 System.out.println("存款");
+                cun();
                 goOneHome();
                 break;
             case "5":
-                System.out.println("退卡");
-                goOneHome();
+                System.out.println("退卡成功");
+
+
                 break;
         }
     }
@@ -68,6 +73,30 @@ public class CustomerService {
         double money = currentCustomer.getMoney();
         System.out.println(" 余额是 " +money);
     }
+    private void qu(){
+        System.out.println("请输入取款金额:");
+
+        double money = scan.nextDouble();
+        if (money <= currentCustomer.getMoney()){
+            money = currentCustomer.getMoney()-money;
+            currentCustomer.setMoney(money);
+            System.out.println("取款成功");
+        }else {
+            System.out.println("余额不足，取款失败");
+
+        }
+    }
+    private void cun(){
+        System.out.println("请输入存钱额度:");
+        double money = scan.nextDouble();
+        if (money >0){
+            System.out.println("存款金额不能为0");
+        }
+        money = money+currentCustomer.getMoney();
+        currentCustomer.setMoney(money);
+        System.out.println("存款成功，当前余额:"+currentCustomer.getMoney());
+    }
+
 
 
     private  void goOneHome( ){
