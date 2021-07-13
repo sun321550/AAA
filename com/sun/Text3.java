@@ -15,11 +15,7 @@ public class Text3 {
             System.out.println("不是回文");
         }
     }
-    /**
-     * 判读该方法是否是回文
-     * @param str 需要判断的字符串
-     * @return true表示是回文，false表示不是回文
-     */
+
     public static boolean check(String str){
         //charAt实现
         for(int i=0;i<str.length()/2;i++){

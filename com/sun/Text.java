@@ -17,7 +17,7 @@ public class Text {
     }
 
     public static void test1(String str){
-        System.out.println("len:"+str.length());
+        System.out.println("Sun:"+str.length());
     }
 
     public static void test2(String str){
