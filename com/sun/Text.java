@@ -35,10 +35,7 @@ public class Text {
     public static void test5(String str){
         System.out.println("sub:"+str.substring(5));
     }
-    /**
-     * 将字符串"  Hello   "中两边的空白去除后输出
-     *
-     */
+
     public static void test6(String str){
         System.out.println("trim:"+str.trim());
     }
