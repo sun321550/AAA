@@ -18,9 +18,9 @@ import java.util.Scanner;
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
             if (str.toUpperCase().equals(input.toUpperCase())) {
-                System.out.println("输入正确");
+                System.out.println("验证码正确");
             } else {
-                System.out.println("输入错误");
+                System.out.println("验证码错误");
             }
 
         }
