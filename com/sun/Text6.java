@@ -45,11 +45,7 @@ public class Text6 {
         int flag = 0;
         for(int i=0;i<str.length();i++){
             flag = (str.charAt(i)-48);
-            /*
-             * 这里是将对应的数字计算为对应的位，例如百位数字就要用该数字乘以10的2次方
-             * 得到
-             * 可以用Math的相关方法处理(自行查看API文档)
-             */
+
             for(int n=0;n<str.length()-1-i;n++){
                 flag*=10;
             }
